@@ -22,8 +22,8 @@ export class UserController {
     @ApiOkResponse({ type: [CreateUserResponseDto], description: "Return all of the users" })
     @ApiOperation({ description: "Return all of the users" })
     @ApiConsumes("application/json")
-    @Get()
-    async findAll(@Body() body: CreateUserDto): Promise<UserEntity[]> {
+    @Get('/')
+    async findAll(): Promise<UserEntity[]> {
         return await this.userService.fetchAllUsers();
     }
 
@@ -31,7 +31,7 @@ export class UserController {
     @ApiCreatedResponse({ type: CreateUserResponseDto, description: "User created sucessfully" })
     @ApiOperation({ description: "Create a new user" })
     @ApiConsumes("application/json")
-    @Post()
+    @Post('/')
     async create(@Body() body: CreateUserDto): Promise<CreateUserResponseDto> {
         return await this.userService.create(body);
     }

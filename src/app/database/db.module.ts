@@ -29,12 +29,11 @@ export class DBModule {
   ): TypeOrmModuleOptions {
     return {
       type: "mysql",
-      host: 'localhost',
-      port: 3306,
-      username: 'root',
-      password: '17192205',
-      database: 'nestjs',
-      //url: dbData.url,
+      host: dbData.host,
+      port: dbData.port,
+      username: dbData.username,
+      password: dbData.password,
+      database: dbData.database,
       keepConnectionAlive: true,
       ssl:
         process.env.NODE_ENV !== "local" && process.env.NODE_ENV !== "test"

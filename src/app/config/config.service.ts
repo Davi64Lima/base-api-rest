@@ -1,7 +1,6 @@
 import { Injectable } from "@nestjs/common";
 import { DEFAULT_CONFIG } from "./config.default";
 import { ConfigData, ConfigDatabase, ConfigSwagger } from "./config.interface";
-import { url } from "inspector";
 
 @Injectable()
 export class ConfigService {
@@ -37,7 +36,11 @@ export class ConfigService {
     defaultConfig: Readonly<ConfigDatabase>
   ) {
     return {
-      url: env.DATABASE_URL || defaultConfig.url,
+      host: env.DB_HOST || defaultConfig.host,
+      port: env.DB_PORT ? parseInt(env.DB_PORT, 10) : defaultConfig.port,
+      username: env.DB_USERNAME || defaultConfig.username,
+      password: env.DB_PASSWORD || defaultConfig.password,
+      database: env.DB_DATABASE || defaultConfig.database,
     };
   }
   private parseSwaggerConfig(

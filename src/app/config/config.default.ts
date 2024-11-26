@@ -4,7 +4,11 @@ export const DEFAULT_CONFIG: ConfigData = {
   port: Number(process.env.PORT || 3000),
   env: "production",
   db: {
-    url: process.env.DATABASE_URL || "",
+    host: process.env.DB_HOST || "localhost",
+    port: Number(process.env.DB_PORT || 3306),
+    username: process.env.DB_USERNAME || "root",
+    password: process.env.DB_PASSWORD || "17192205",
+    database: process.env.DB_DATABASE || "nestjs",
   },
   swagger: {
     username: "",

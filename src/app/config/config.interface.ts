@@ -1,7 +1,10 @@
 export interface ConfigDatabase {
-  url: string;
+  host: string;
+  port: number;
+  username: string;
+  password: string;
+  database: string;
 }
-
 export interface ConfigSwagger {
   username: string;
   password: string;
